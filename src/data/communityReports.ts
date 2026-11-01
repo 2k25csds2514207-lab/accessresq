@@ -1,0 +1,83 @@
+import { BarrierReport } from '../types/community';
+
+export const INITIAL_BARRIER_REPORTS: BarrierReport[] = [
+  {
+    id: 'barrier_civil_lines_ramp',
+    title: 'Blocked Curb Ramp by Parked Delivery Two-Wheelers',
+    description: 'The pedestrian curb cut ramp directly opposite Civil Lines Crossing is completely blocked by three delivery motorbikes. Wheelchair users forced into traffic lane.',
+    category: 'blocked_ramp',
+    severity: 'high',
+    status: 'community_confirmed',
+    coordinate: { lat: 26.4745, lng: 80.3400 },
+    locationName: 'Civil Lines Crossing, North Pedestrian Crosswalk',
+    photoUrl: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&auto=format&fit=crop&q=80',
+    reportedBy: 'Aarav Malhotra (Power Wheelchair User)',
+    reportedAt: '2026-11-01T09:15:00Z',
+    confirmationsCount: 5,
+    confirmedByUserIds: ['u1', 'u2', 'u3', 'u4', 'u5'],
+    affectedRouteSegmentId: 'seg_civil_lines_underpass'
+  },
+  {
+    id: 'barrier_bhauti_construction',
+    title: 'Utility Trench Digging Across Footpath Without Steel Ramp Plate',
+    description: 'Telecom trenching cut 40cm into the sidewalk on NH-19 near Bhauti bypass. No temporary bridge or ramp provided. Dangerous edge for visually impaired and wheelchair users.',
+    category: 'construction',
+    severity: 'impassable',
+    status: 'verified',
+    coordinate: { lat: 26.4525, lng: 80.2010 },
+    locationName: 'Bhauti Highway Corridor (Near Flyover Pillar 14)',
+    photoUrl: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&auto=format&fit=crop&q=80',
+    reportedBy: 'Kavita Saxena (Access Audit Volunteer)',
+    reportedAt: '2026-10-31T14:30:00Z',
+    confirmationsCount: 12,
+    confirmedByUserIds: ['u1', 'u6', 'u7', 'u8', 'u9'],
+    affectedRouteSegmentId: 'seg_bhauti_flyover_direct'
+  },
+  {
+    id: 'barrier_z_square_elevator',
+    title: 'Plaza West Elevator Out of Service for Annual Maintenance',
+    description: 'Elevator connecting P1 parking to ground level is tagged for motor overhaul. Security guiding users towards South Ramp which has 1:12 accessible grade.',
+    category: 'broken_elevator',
+    severity: 'moderate',
+    status: 'verified',
+    coordinate: { lat: 26.4718, lng: 80.3528 },
+    locationName: 'Z Square Mall, West Plaza Drop-off',
+    reportedBy: 'Mall Operations Team',
+    reportedAt: '2026-11-01T08:00:00Z',
+    confirmationsCount: 8,
+    confirmedByUserIds: ['u2', 'u3'],
+    affectedRouteSegmentId: 'seg_the_mall_stairs_cutoff'
+  },
+  {
+    id: 'barrier_motijheel_broken_path',
+    title: 'Broken Paver Tiles & High Tree Root Heave',
+    description: 'Root growth has lifted pavers creating 8cm uneven ledge on the east lakeside track. High vibration danger and potential tipping hazard for manual wheelchairs.',
+    category: 'broken_footpath',
+    severity: 'moderate',
+    status: 'community_confirmed',
+    coordinate: { lat: 26.4770, lng: 80.3180 },
+    locationName: 'Moti Jheel East Jogging Track & Walkway',
+    photoUrl: 'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&auto=format&fit=crop&q=80',
+    reportedBy: 'Rohan Gupta',
+    reportedAt: '2026-10-30T16:20:00Z',
+    confirmationsCount: 4,
+    confirmedByUserIds: ['u10', 'u11'],
+  },
+  {
+    id: 'barrier_station_stairs',
+    title: 'Foot Overbridge Ramp Locked with Iron Chain',
+    description: 'Access gate to ramp was locked during night shift. Station master notified to keep latch unlocked 24 hours.',
+    category: 'stairs_no_ramp',
+    severity: 'impassable',
+    status: 'resolved',
+    coordinate: { lat: 26.4539, lng: 80.3513 },
+    locationName: 'Kanpur Central Railway Station (City Side Exit)',
+    reportedBy: 'Divyang Sahayata Cell',
+    reportedAt: '2026-10-29T11:00:00Z',
+    resolvedAt: '2026-10-29T18:30:00Z',
+    resolutionNote: 'Station manager verified gate lock removed permanently and installed illuminated accessibility sign.',
+    confirmationsCount: 16,
+    confirmedByUserIds: ['u1', 'u2', 'u3', 'u4']
+  }
+];
+
