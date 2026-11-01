@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { 
-  X, 
-  PhoneCall, 
-  MapPin, 
-  Share2, 
-  Check, 
-  ShieldAlert, 
-  Heart, 
-  Copy, 
+import React, { useEffect, useState } from 'react';
+import {
+  X,
+  PhoneCall,
+  MapPin,
+  Share2,
+  Check,
+  ShieldAlert,
+  Heart,
+  Copy,
   AlertCircle,
-  ExternalLink 
+  ExternalLink
 } from 'lucide-react';
 import { StorageService, UserSOSProfile } from '../../services/storageService';
 
@@ -19,7 +19,15 @@ interface SOSModalProps {
 }
 
 export const SOSModal: React.FC<SOSModalProps> = ({ isOpen, onClose }) => {
-  const [profile, setProfile] = useState<UserSOSProfile>(StorageService.getSOSProfile());
+  const [profile, setProfile] = useState<UserSOSProfile>(
+    StorageService.getSOSProfile()
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      setProfile(StorageService.getSOSProfile());
+    }
+  }, [isOpen]);
   const [copied, setCopied] = useState(false);
   const [locationStatus, setLocationStatus] = useState<string>('PSIT Kanpur Gate 1, Bhauti (26.4508° N, 80.1932° E)');
   const [isLocating, setIsLocating] = useState(false);
@@ -71,16 +79,16 @@ export const SOSModal: React.FC<SOSModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fade-in">
       <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-rose-100 overflow-hidden">
-        
+
         {/* Urgent Header */}
         <div className="bg-gradient-to-r from-rose-600 to-red-700 text-white p-6 relative">
-          <button 
+          <button
             onClick={onClose}
             className="absolute top-5 right-5 p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition"
           >
             <X className="w-5 h-5" />
           </button>
-          
+
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center">
               <ShieldAlert className="w-6 h-6 text-white animate-pulse" />
@@ -97,7 +105,7 @@ export const SOSModal: React.FC<SOSModalProps> = ({ isOpen, onClose }) => {
 
         {/* Content Body */}
         <div className="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
-          
+
           {/* Transparency Disclaimer */}
           <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-3">
             <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -197,7 +205,7 @@ export const SOSModal: React.FC<SOSModalProps> = ({ isOpen, onClose }) => {
               <div className="col-span-2 border-t border-slate-200/80 pt-2">
                 <span className="text-slate-400 block text-[10px] uppercase">Emergency Contact</span>
                 <span className="font-bold text-slate-800">
-                  {profile.emergencyContactName 
+                  {profile.emergencyContactName
                     ? `${profile.emergencyContactName} ${profile.emergencyContactRelationship ? `(${profile.emergencyContactRelationship})` : ''} — ${profile.emergencyContactPhone || 'No phone'}`
                     : 'No emergency contact registered'}
                 </span>
